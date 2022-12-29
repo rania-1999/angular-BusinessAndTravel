@@ -1,0 +1,38 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<div class="container mt-5" >
+
+          <app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+        
+
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-6" >
+            <mat-card>
+                <div *ngFor="let u of users">
+                    <div class="p-3 bg-white text-center" *ngIf="numbers.includes(u.idClient)">
+
+
+                        <div class="d-flex flex-row justify-content-between align-items-center">
+
+                        </div>
+                        <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+                            <div class="d-flex flex-row align-items-center"><img class="rounded-circle"
+                                    src="https://i.imgur.com/I6WnkOv.jpg" width="55">
+                                <div class="d-flex flex-column align-items-start ml-2"><a
+                                        class="font-weight-bold" [routerLink]="['/profiles',u.idClient]">{{u.nom}} {{u.prenom}} </a><span
+                                        class="followers">
+                                        </span></div>
+                                        <div *ngIf=""></div>
+                            </div>
+                            <div class="d-flex flex-row align-items-center mt-2"  ><button mat-raised-button color="primary"
+                                    type="button" (click)="unfollow(u.idClient)">Unfollow</button></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </mat-card>
+
+        </div>
+    </div>
+
+</div>

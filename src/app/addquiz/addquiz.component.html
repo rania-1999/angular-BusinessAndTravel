@@ -1,0 +1,28 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+<br>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6 col-md-4"></div>
+        <div class="col-6 col-md-4">
+        <form (ngSubmit)="onSubmit()">
+            <h3>create your quiz</h3>
+            <div class="form-group ">
+                <label for="exampleFormControlInput1">quiz title</label>
+                <input type="text" class="form-control" [(ngModel)]="quiz.nameQuiz" name="nameQuiz"  placeholder="quiz title">
+            </div>
+            <div class="form-group ">
+                <label for="exampleFormControlInput1">quiz type</label>
+                <input type="text" class="form-control" [(ngModel)]="quiz.TypeQuiz" name="TypeQuiz"  placeholder="quiz type">
+            </div>
+            <div class="form-group ">
+                <label for="exampleFormControlInput1">quiz diffculty</label>
+                <input type="text" class="form-control"  [(ngModel)]="quiz.numQuestion" name="numQuestion"  placeholder="quiz diffculty">
+            </div>
+            <button type="submit" mat-raised-button color="primary">Submit</button>
+
+        </form>
+    </div>
+    <div class="col-6 col-md-4"></div>
+    </div>
+</div>

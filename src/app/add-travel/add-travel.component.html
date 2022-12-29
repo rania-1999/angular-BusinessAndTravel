@@ -1,0 +1,85 @@
+
+
+
+<form class="example-form" [formGroup]="service.formModel" (submit)="onSubmit()">
+   
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Ex. Pizza" formControlName="DepVille" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <div class="form-group">
+            <mat-form-field class="example-full-width"  appearance="fill">
+                <mat-label>Body</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="DesVille"></textarea>
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput type="number" placeholder="Ex. Pizza" formControlName="NbIntervenant" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+                <mat-label>dateDep</mat-label>
+                <input matInput type="date" formControlName="DateDep">
+                  
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+                <mat-label>dateDest</mat-label>
+                <input matInput type="date" formControlName="DateDep">
+
+            
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+                <mat-label>dateRetour</mat-label>
+                <input matInput type="date" formControlName="DateRetour">
+
+            
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Objet </mat-label>
+                <input matInput placeholder="Ex. Pizza" formControlName="Object" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr><td>  <button type="submit"  mat-raised-button color="primary">Add Voyage</button></td></tr>
+  
+  </form>
+  

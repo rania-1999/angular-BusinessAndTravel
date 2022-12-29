@@ -1,0 +1,86 @@
+
+
+
+<form class="example-form" [formGroup]="service.formModel" (submit)="onSubmit()">
+   
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>NomEvenement</mat-label>
+                <input matInput placeholder="Ex.Le salon professionnel.
+                " formControlName="NomEvenement" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Domain</mat-label>
+                <input matInput placeholder="Ex. Bank" formControlName="Domain" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Type</mat-label>
+                <input matInput placeholder="Ex. business" formControlName="Type" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Ex. about" formControlName="Description" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Localisation</mat-label>
+                <input matInput placeholder="Ex. Montreal" formControlName="Localisation" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+
+                <mat-label>dateDep</mat-label>
+                <input type="date" formControlName="DatedebEvenement">
+                  
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <div class="form-group">
+
+                <mat-label>date fin</mat-label>
+                <input type="date" formControlName="DatefinEvenement">
+                  
+            </div>
+        </td>
+    </tr>
+    <tr><td>  <button type="submit"  mat-raised-button color="primary">Add Event</button></td></tr>
+  
+  </form>
+  

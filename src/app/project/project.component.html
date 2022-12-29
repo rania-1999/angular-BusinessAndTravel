@@ -1,0 +1,74 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+<div class="row">
+  <br>
+
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <br>
+    <br>
+    <mat-card align="left">
+      <mat-card-title>Employee Of The Month</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-actions align="end">
+        <button mat-button (click)=" openDialogSEmployee()">check</button>
+
+      </mat-card-actions>
+    </mat-card>
+    <div class="container">
+
+      <div class="cards grid-row">
+        <div class="card" *ngFor="let u of listProjects">
+
+
+
+          <mat-card class="example-card">
+            <br>
+            <mat-card-subtitle>Projet</mat-card-subtitle>
+            <mat-card-title style="color:#213f77 ;">{{u.nom}}</mat-card-title>
+            <mat-card-content>
+              <p>{{u.description}}</p>
+              <p>{{ longText }}</p>
+
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+              <button mat-button (click)="openDialogEmployee(u.idProject)">voir plus </button>
+              <button (click)="deleteproject(u.idProject)" mat-button>delete</button>
+              <button (click)="openDialogEdit(u.idProject)" mat-button>Edit</button>
+
+            </mat-card-actions>
+
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <button (click)="openDialogEntreprise()" mat-button>Add New</button>
+  </div>
+</div>
+<!--  
+<div>
+
+<table>
+<tr><th>
+    description:
+</th>
+<th>nom:</th>
+<th>date debut:</th>
+<th>operations</th>
+</tr>
+<tr *ngFor="let u of listProjects">
+    <td >{{u.description}}</td>
+    <td>{{u.nom}}</td>
+    <td>{{u.dateDebut}}</td>
+    <td> <button (click)="deleteproject(u.idProject)" class="btn btn-success" >delete</button></td>
+<td><select name="idEmployee" id="idEmployee" [(ngModel)]="selectedEmployee"  >
+    <option>select a choice</option>
+    <option *ngFor="let f of listEmployee" value="{{f.idEmployee}}" >{{f.email}}</option>
+ </select> 
+ <button (click)="AffectProjectToEmployee(u.idProjects)" class="btn btn-success" >affecter</button>
+</td>
+
+</tr>
+</table>
+<a href='http://localhost:8089/SpringMVC/project/export/excel'  class="btn btn-success">excel</a></div>-->

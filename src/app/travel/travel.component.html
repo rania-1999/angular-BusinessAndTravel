@@ -1,0 +1,42 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <button (click)="openDialog()" mat-raised-button color="primary">Add Travel</button>
+<table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <th scope="col">depVille</th>
+        <th scope="col">desVille</th>
+        <th scope="col">dateDep</th>
+        <th scope="col">dateDest</th>
+        <th scope="col">dateRetour</th>
+        <th scope="col">nbIntervenant</th>
+        <th scope="col">object</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let travel of travels">
+        
+        <td>{{travel.depVille}}</td>
+        <td>{{travel.desVille}}</td>
+        <td>{{travel.dateDep|date:"dd/MM/yyyy"}}</td>
+        <td>{{travel.dateDest|date:"dd/MM/yyyy"}}</td>
+        <td>{{travel.dateRetour|date:"dd/MM/yyyy"}}</td>
+        <td>{{travel.nbIntervenant}}</td>
+        <td>{{travel.object}}</td>
+        
+      </tr>
+     
+    </tbody>
+  </table>
+
+    </div>
+  </div>
+
+</div>

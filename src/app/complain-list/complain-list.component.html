@@ -1,0 +1,52 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+   
+    <div class="panel-body container"  class="mat-elevation-z8" >  
+     
+      <table mat-table [dataSource]="dataSource">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="ID" >
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let dataSource"> {{dataSource.idComplain}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Employee complain">
+          <th mat-header-cell *matHeaderCellDef> Employee Complain </th>
+          <td mat-cell *matCellDef="let dataSource"> {{dataSource.body}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="operations">
+          <th mat-header-cell *matHeaderCellDef> operations </th>
+          <td mat-cell *matCellDef="let complain">  
+            <button  (click)="deletecomplain(complain.idComplain)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>   
+            <button  class='btn btn-info' >Update</button>   
+          </td>
+        </ng-container>
+      
+        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      
+      <mat-paginator #paginator [length]="5"
+          
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+    </mat-paginator>
+
+  </div>  
+  <div>
+      
+  </div>
+</div>

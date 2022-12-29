@@ -1,0 +1,56 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+
+<div class="container">
+  <div class="row g-0">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <br>
+    <h6>To send invitations from your excel document click here: </h6>
+    
+    <button (click)="sendInvitationsExcel()"  mat-raised-button color="primary">Send invitations from Excel</button>
+    <p></p>
+    <p>notice: you can find the document in D:\invitationsExcel.</p>
+    <p></p>
+    
+
+   
+  
+
+    <h3>List of invitations</h3>
+<table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <th scope="col">idInvitation</th>
+        <th scope="col">email</th>
+        <th scope="col">phone</th>
+        <th scope="col">fullName</th>
+        <th scope="col">status</th>
+        <th scope="col">dateInvitation</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of invitations">
+        
+        <td>{{i.idInvitation}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.fullName}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.dateInvitation|date:"dd/MM/yyyy"}}</td>
+        <td>
+            <div *ngIf="i.status=='false'">
+                <button (click)="resendInvitation(i.idInvitation)"  mat-raised-button color="warn">Resend invitation</button>
+            </div>
+            
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+    </div>
+  </div>
+
+  <app-footer *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-footer>

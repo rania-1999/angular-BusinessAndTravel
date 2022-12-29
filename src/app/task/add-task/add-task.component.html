@@ -1,0 +1,66 @@
+
+
+<form class="example-form"  (ngSubmit)="addTask()">
+   
+    <tr>
+        <td>
+            <div class="form-group">
+ 
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input  name="nom" [(ngModel)]="task.nom"type="text" id="nom" matInput placeholder="Ex. crud" >
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+ 
+            <div class="form-group">
+            <mat-form-field class="example-full-width"  appearance="fill">
+                <mat-label>description</mat-label>
+                <textarea  name="description"  [(ngModel)]="task.description" type="text" id="description" matInput placeholder="Ex. this project ..." ></textarea>
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+              
+                    <mat-label>Choose a date of start Task</mat-label>
+                    <input type="date" [(ngModel)]="task.dateTask"  >
+                   
+            
+        </td>
+    </tr>
+    <tr>
+        <td>
+              
+                    <mat-label>Choose a date of end Task</mat-label>
+                    <input type="date" [(ngModel)]="task.dateFinTask"  >
+                   
+            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+ 
+                <mat-label>Project</mat-label>
+                <select name="idProject" id="idProject"[(ngModel)]="idProject"  >
+                   <option>select a choice</option>
+                   <option *ngFor="let u of listProjects" value="{{u.idProject}}" >{{u.nom}}</option>
+                </select>
+            
+            </div>
+        </td>
+    </tr>
+    
+    <tr><td>  <button type="submit"  mat-raised-button color="primary">Add Task</button></td></tr>
+  
+  </form>
+  
+ 
+ 
+ 
+ 

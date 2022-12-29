@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="container">
+
+  <div *ngFor="let u of searchUsers">
+    <br>
+    <mat-card>
+        <a mat-card-title [routerLink]="['/profiles',u.idClient]">{{u.nom}} {{u.prenom}}</a>
+        <mat-card-subtitle>Start</mat-card-subtitle>
+  
+      </mat-card>
+      <br>
+</div>
+
+</div>
+
+

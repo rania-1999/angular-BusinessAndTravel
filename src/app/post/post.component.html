@@ -1,0 +1,94 @@
+<div class="xxx">     </div>
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+<div class="container">
+    
+    <div align="center">
+        
+        <div *ngIf="userDetails && userDetails.occ == 5  ">
+            <mat-card  class="example-card">
+                <input type="email" class="form-control"  (click)="openDialog()" [disabled]="true" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="you are banned">
+            </mat-card>
+        </div>
+        <div *ngIf="userDetails && userDetails.occ != 5  ">
+            <mat-card  class="example-card">
+                <input type="email" class="form-control"  (click)="openDialog()"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your post">
+            </mat-card>
+        </div>
+        <button routerLink="/mostlikedpost" routerLinkActive="active" mat-raised-button color="primary">most liked
+            posts</button>
+    </div>
+
+    <div *ngFor="let p of posts">
+        <p>
+            <mat-card class="example-card">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="deletepost(p.idPost)">
+
+                        <span>delete</span>
+                    </button>
+
+                    <button mat-menu-item>
+
+                        <span>edit</span>
+                    </button>
+                </mat-menu>
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"> <img class="rounded-circle" src="https://i.imgur.com/I6WnkOv.jpg" width="40"></div>
+                   
+                    <a mat-card-title [routerLink]="['/profiles',p.c.idClient]">{{p.c.nom}}</a>
+                    
+                  </mat-card-header>
+                 
+                <mat-card-title>{{p.titre}}</mat-card-title>
+                <mat-card-subtitle>{{p.datePost}}</mat-card-subtitle>
+                <mat-card-content>
+
+                    <p>{{p.body}}</p>
+
+                </mat-card-content>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+                <mat-card-actions>
+                    <button (click)="addlikes(p.idPost,userDetails.idClient)" mat-button>LIKE</button>
+                    <button mat-button (click)="showComments()">COMMENTS</button>
+                </mat-card-actions>
+
+                <div *ngFor="let c of comments">
+
+                    <mat-card class="example-card" *ngIf="c.posts.idPost == p.idPost">
+                        <div mat-card-avatar class="example-header-image"> <img class="rounded-circle" src="https://i.imgur.com/I6WnkOv.jpg" width="40"></div>
+                   
+                        <mat-card-title >{{c.client.nom}}</mat-card-title>
+                        {{c.body}}
+                        <mat-card-actions>
+                            <button (click)="addlikes(p.idPost,userDetails.idClient)" mat-button>LIKE</button>
+                            
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+
+
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Leave a comment</mat-label>
+
+
+                    <form class="example-form" [formGroup]="cService.formModel"
+                        (submit)="onSubmit(p.idPost,userDetails.idClient)">
+                        <div class="form-group">
+                            <textarea matInput placeholder="" formControlName="Bb"></textarea>
+                        </div>
+                        <button type="submit" mat-raised-button color="warn"
+                            [disabled]="!cService.formModel.valid">comment</button>
+                    </form>
+                </mat-form-field>
+
+            </mat-card>
+        </p>
+
+    </div>
+
+</div>

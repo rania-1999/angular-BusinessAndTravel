@@ -1,0 +1,21 @@
+<form class="example-form" [formGroup]="service.formModel" (submit)="onSubmit()">
+
+    <tr>
+        <td>
+          
+                <div class="form-group">
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="test" formControlName="Domain">
+                    </mat-form-field>
+                </div>
+            
+        </td>
+    </tr>
+
+    <tr>
+        <td> <button type="submit" mat-raised-button color="primary">Change Password</button></td>
+    </tr>
+
+</form>

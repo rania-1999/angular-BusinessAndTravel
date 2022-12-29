@@ -1,0 +1,101 @@
+<div class="body">
+    <form class="form-horizontal" (ngSubmit)="edit()">
+    <div class="row clearfix">
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+    <label for="nom">Name</label>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7">
+ <div class="form-group">
+    <div class="form-line">
+    <input name="nom" [(ngModel)]="project.nom" type="text" id="nom" class="form-control"
+    placeholder="Enter name project">
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+        <label for="nom">description</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7">
+     <div class="form-group">
+        <div class="form-line">
+        <input name="description" [(ngModel)]="project.description" type="text" id="description" class="form-control"
+        placeholder="Enter description project">
+        </div>
+        </div>
+        </div>
+        </div>
+   
+        <div class="row clearfix">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label for="nom">documents</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7">
+         <div class="form-group">
+            <div class="form-line">
+            <input name="documents" [(ngModel)]="project.documents" type="text" id="documents" class="form-control"
+            placeholder="Enter documents project">
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                <label for="nom">libelle
+                </label>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7">
+             <div class="form-group">
+                <div class="form-line">
+                <input name="libelle" [(ngModel)]="project.libelle" type="text" id="libelle" class="form-control"
+                placeholder="Enter libelle project">
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                    <label for="nom">budget</label>
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7">
+                 <div class="form-group">
+                    <div class="form-line">
+                    <input name="budget" [(ngModel)]="project.budget" type="number" id="budget" class="form-control"
+                    placeholder="Enter budget project">
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                        <label for="nom">Date Debut</label>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7">
+                     <div class="form-group">
+                        <div class="form-line">
+                            <input name="dateDebut" id="dateDebut" type="date"  [(ngModel)]="project.dateDebut">
+                      
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    <div class="row clearfix">
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                        <label for="nom">Date Fin</label>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7">
+                     <div class="form-group">
+                        <div class="form-line">
+                            <input name="datef" id="dateFin" type="date"  [(ngModel)]="project.dateFin">
+                      
+                        </div>
+                        </div>
+                        </div>
+                        </div> 
+                        
+    <button type="submit"  class="btn btn-success">submit</button>
+    
+    </form>
+    </div>
+

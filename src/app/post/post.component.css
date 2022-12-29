@@ -1,0 +1,21 @@
+
+.example-card {
+    max-width: 400px;
+    margin:0 auto;
+  }
+  .mat-icon-button{
+    margin-right: auto;
+  }
+  .xxx{
+    BOX-SHADOW:rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+    FONT-SIZE:12px;
+    LINE-HEIGHT:16.08px;
+    TEXT-ALIGN:start;
+    LETTER-SPACING:normal;
+  }
+  a {
+    color: #000000;
+    
+}
+  
+  

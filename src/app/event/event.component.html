@@ -1,0 +1,95 @@
+<app-header></app-header>
+<div class="container">
+    
+    <div align="center">
+       
+            
+        
+        
+            <button (click)="openDialog()" mat-raised-button color="primary" >Add Event</button>
+        
+       
+    </div>
+  
+    <div *ngFor="let event of events">
+        <p>
+           
+            <mat-card class="example-card">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  
+        
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deleteevent(event.idEvenement)">
+                        <mat-icon>delete</mat-icon>
+                        <span></span>
+                    </button>
+                    
+                    
+                    <button mat-menu-item>
+
+                        <span>edit</span>
+                    </button>
+                </mat-menu>
+                <mat-grid-list cols="2" rowHeight="2:1">
+                <mat-card-title>{{event.nomEvenement}}</mat-card-title>
+                <mat-card-subtitle>{{event.libelle}}</mat-card-subtitle>
+                <mat-card-content>
+
+                    <p>{{event.body}}</p>
+
+                </mat-card-content>
+            </mat-grid-list>
+                <mat-card-actions>
+                    <!-- <button (click)="addlikes(p.idPost,userDetails.idClient)" mat-button>LIKE</button> -->
+                    
+                    <button mat-button (click)="showNotes()">Notes</button>
+                </mat-card-actions>
+
+                <div *ngFor="let n of notes">
+
+                    <mat-card class="example-card" *ngIf="n.events.idEvenement == n.idEvenement">
+
+                        {{n.body}}
+                        {{n.events.idEvenement}}
+                    </mat-card>
+                </div>
+
+
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Leave a grade evaluation</mat-label>
+
+
+                    <form class="example-form" [formGroup]="nService.formModel"
+                        (submit)="onSubmit(event.idEvenement,userDetails.idClient)">
+                        <div class="form-group">
+                            <textarea matInput placeholder="" formControlName="Bb"></textarea>
+                        </div>
+                        <button mat-raised-button
+        matTooltip="Info about the action"
+        type="submit"
+        matTooltipClass="example-tooltip-red"
+        aria-label="Button that shows a red tooltip"
+        class="example-button"
+        [disabled]="!nService.formModel.valid">
+  Note
+</button>
+                        
+                    </form>
+                </mat-form-field>
+
+            </mat-card>
+        </p>
+
+    </div>
+</div>
+
+
+
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>

@@ -1,0 +1,10 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+<div class="container" align="center">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <h1>Welcome</h1>
+        </div>
+</div>
+

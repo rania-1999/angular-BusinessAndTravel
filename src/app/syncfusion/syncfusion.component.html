@@ -1,0 +1,18 @@
+<app-header *ngIf="!uService.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-sm-1" *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])"> <button type="submit" (click)="openDialogTask()" mat-raised-button color="primary"
+                    style="margin-top: 10px;">addNew</button></div>
+        </div>
+
+        <div class="col-sm-10" style="margin-top: 10px; height: 50%;">
+            <full-calendar [options]="calendarOptions"> </full-calendar>
+            <div class="col-sm-1">
+
+            </div>
+        </div>
+    </div>
+</div>

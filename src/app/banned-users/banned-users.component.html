@@ -1,0 +1,46 @@
+<app-header *ngIf="!service.roleMatch(['ROLE_ENTREPRISE'])"></app-header>
+<app-sidebar *ngIf="service.roleMatch(['ROLE_ENTREPRISE'])"></app-sidebar>
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <br>
+      <button (click)="onSubmit()" mat-raised-button color="warn">Send Warning Email</button>
+      <br>
+      <br>
+      
+<table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <th scope="col">nom</th>
+        <th scope="col">prenom</th>
+        <th scope="col">dateNaissance</th>
+        <th scope="col">email</th>
+        <th scope="col">domain</th>
+        <th scope="col">occ</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of banned">
+        
+        <td>{{b.nom}}</td>
+        <td>{{b.prenom}}</td>
+        <td>{{b.dateNaissance|date:"dd/MM/yyyy"}}</td>
+        <td>{{b.email}}</td>
+        <td>{{b.domain}}</td>
+        <td>{{b.occ}}</td>
+        
+        
+      </tr>
+     
+    </tbody>
+  </table>
+
+    </div>
+  </div>
+
+</div>

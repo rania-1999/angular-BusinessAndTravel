@@ -1,0 +1,86 @@
+<mat-toolbar class="mat-elevation-z8" color="primary" *ngIf="!userDetails">
+
+    <div class="mr-auto mt-2 mt-lg-0">
+        <span><img src="/assets/img/logo.png" height=30 width=41></span>
+        <a mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Home</a>
+
+        <a mat-button routerLink="/post" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Posts</a>
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="my-2 my-sm-0">
+        <span class="flex-spacer"></span>
+        <a mat-raised-button color="Basic" routerLink="/user/login"><span class="fa fa-sign-in fa-lg"></span>
+            Login</a>
+    </div>
+
+
+
+
+
+</mat-toolbar>
+<div></div>
+<mat-toolbar class="mat-elevation-z8" color="primary" *ngIf="userDetails">
+
+    <div class="mr-auto mt-2 mt-lg-0">
+        <span><img src="/assets/img/logo.png" height=30 width=41></span>
+        <a mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Home</a>
+        <a mat-button routerLink="/profil" routerLinkActive="active"><span class="fa fa-home fa-lg"></span>
+            Profile</a>
+        <a mat-button routerLink="/followers" routerLinkActive="active"><span class="fa fa-home fa-lg"></span>
+            Followers</a>
+        <a mat-button routerLink="/post" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Posts</a>
+
+        <a *ngIf="service.roleMatch(['ROLE_ENTREPRISE'])" mat-button routerLink="/travel"
+            routerLinkActive="active"><span class="fa fa-address-card fa-lg"></span>
+            Travels</a>
+        <a mat-button routerLink="/stats" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Stats</a>
+        <a *ngIf="service.roleMatch(['ROLE_ENTREPRISE'])" mat-button routerLink="/invitations"
+            routerLinkActive="active"><span class="fa fa-list fa-lg"></span>
+            Invitations</a>
+        <a *ngIf="service.roleMatch(['ROLE_ENTREPRISE'])" mat-button routerLink="/addquiz"
+            routerLinkActive="active"><span class="fa fa-list fa-lg"></span>
+            Add quiz</a>
+
+        <a mat-button routerLink="/quizlist" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Quiz
+            list</a>
+        <a mat-button routerLink="/addcomplain" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Add
+            complain</a>
+
+        <a *ngIf="service.roleMatch(['ROLE_EMPLOYEE'])" mat-button routerLink="/travelEmployee"
+            routerLinkActive="active"><span class="fa fa-address-card fa-lg"></span>
+            Travels</a>
+        <a mat-button routerLink="/schedular" routerLinkActive="active"><span class="fa fa-home fa-lg"></span>
+            Schedular</a>
+        <a mat-button routerLink="/tasks" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Tasks</a>
+        <a mat-button routerLink="/project" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Project</a>
+
+
+
+    </div>
+    <form>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <input matInput name="title" type="text" required ngModel #x="ngModel" (keyup.enter)="search(x.value)">
+        </mat-form-field>
+
+    </form>
+
+    <div class="my-2 my-sm-0" *ngIf="userDetails">
+
+        <span class="flex-spacer"></span>
+        <a mat-raised-button color="warn" (click)="onLogout()"><span class="fa fa-sign-in fa-lg"></span> Logout</a>
+    </div>
+
+
+
+
+
+</mat-toolbar>

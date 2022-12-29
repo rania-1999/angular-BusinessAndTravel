@@ -1,0 +1,31 @@
+
+
+
+<form class="example-form" [formGroup]="service.formModel" (submit)="onSubmit(userDetails.idClient)">
+   
+    <tr>
+        <td>
+            <div class="form-group">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Ex. Pizza" formControlName="Titre" value="Sushi">
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <div class="form-group">
+            <mat-form-field class="example-full-width"  appearance="fill">
+                <mat-label>Body</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="Bb"></textarea>
+              </mat-form-field>
+            </div>
+        </td>
+    </tr>
+    <tr><td>  <button type="submit"  mat-raised-button color="primary">Add Post</button></td></tr>
+  
+  </form>
+  

@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container">
+<button (click)="openDialog()" mat-raised-button color="primary">Add event</button>
+
+<table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+  <thead>
+    <tr>
+      <th scope="col">nomEvenement</th>
+      <th scope="col">nomEvenement</th>
+      <th scope="col">libelle</th>
+      <th scope="col">description</th>
+      <th scope="col">localisation</th>
+      <th scope="col">nbreIntervenant</th>
+      <th scope="col">domain</th>
+      <th scope="col">datedebEvenement</th>
+      <th scope="col">datefinEvenement</th>
+
+    </tr>
+  </thead>
+ 
+  <tbody>
+    
+    <tr *ngFor="let event of events">
+      <td>{{event.idEvenement}}</td>
+      <td>{{event.nomEvenement}}</td>
+      <td>{{event.libelle}}</td>
+      <td>{{event.description}}</td>
+      <td>{{event.localisation}}</td>
+      <td>{{event.localisation}}</td>
+      <td>{{event.domain}}</td>
+      <td>{{event.datedebEvenement|date:"dd:MM:yyyy"}}</td>
+      <td>{{event.datefinEvenement|date:"dd:MM:yyyy"}}</td>
+ 
+      <button type="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-warn" mat-menu-item (click)="deleteevent(event.idEvenement)">Delete</button>
+      
+    </tr>
+    
+ 
+  </tbody>
+  
+
+</table>
+
+</div>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>

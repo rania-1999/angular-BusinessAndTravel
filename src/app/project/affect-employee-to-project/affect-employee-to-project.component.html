@@ -1,0 +1,39 @@
+<div >
+   <tr>
+      <td><p>Nom:</p></td>
+      <td> <p>{{listProject.nom}}</p></td>
+      
+
+  </tr>
+  <tr>      <td><p>Description:</p></td>
+
+  <td> <p>{{listProject.description}}</p></td>
+  </tr>
+  <tr>    <td>libelle: </td>
+        <td> <p>{{listProject.libelle}}</p></td>
+  </tr>
+  
+      <tr><td>Intervenant:    </td>
+         <td> <p>{{listProject.intervenant}}</p></td></tr>  
+         <tr>     <td>Budget: </td>
+              <td> <p>{{listProject.budget}}</p></td>
+         </tr>
+    <form class="form-horizontal" (ngSubmit)="AffectProjectToEmployee(idProject,selectedEmployee)">
+<div >
+    <div >
+    <label for="nom">Employee</label>
+    </div>
+    <div >
+ <div >
+    <div *ngIf="uService.roleMatch(['ROLE_ENTREPRISE'])">
+       <select name="idEmployee" id="idEmployee" [(ngModel)]="selectedEmployee"  >
+          <option>select a choice</option>
+          <option *ngFor="let u of listEmployee" value="{{u.idEmployee}}" >{{u.email}}</option>
+       </select>
+    </div> 
+    </div>
+    </div>
+    </div>
+    <button type="submit"  mat-raised-button color="primary">submit</button>
+</form>
+</div>

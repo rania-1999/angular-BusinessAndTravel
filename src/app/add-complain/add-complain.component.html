@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<body>
+  
+<div [hidden]="submitted" style="width: 400px;" class="container ">
+  <h3>complain area</h3>
+
+  <form (ngSubmit)="onSubmit()">
+    
+
+    <div class="form-group">
+      <label for="name">write in here please</label>
+      <textarea class="form-control" name="" id="" cols="100" rows="10"  required [(ngModel)]="complain.body" name="body"></textarea>
+    </div>
+
+    <div class="d-grid gap-2 ">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>
+
+</body>
